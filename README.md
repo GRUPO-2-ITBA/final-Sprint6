@@ -6,5 +6,6 @@ ITBANK tiene un modelo de datos definido para la operación de su negocio. Elmod
 
 ## Instrucciones de uso:
 
-##Base de datos para probrar:
+## Base de datos para probrar:
+
 [itbank.zip](https://github.com/GRUPO-2-ITBA/final-Sprint6/files/9227110/itbank.zip)
