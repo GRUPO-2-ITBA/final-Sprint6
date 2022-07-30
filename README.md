@@ -1,4 +1,4 @@
-# Entrega-del-trabajo-final-Sprint6
+# Entrega del trabajo final Sprint6
 
 # Introducion
 
