@@ -12,12 +12,12 @@ GROUP by s.branch_id
 
 ------------------------------------------------
 
-SELECT s.branch_name, count(t.card_id), m.card_brand_description FROM cliente cliente 
-INNER JOIN tarjeta t ON cliente.customer_id = t.customer_id
-INNER JOIN sucursal s ON cliente.branch_id = s.branch_id
-INNER JOIN marca_tarjeta m ON t.brand_card_id = m.card_brand_id
+SELECT s.branch_name, count(t.card_id), m.card_brand_description FROM cliente c
+INNER JOIN tarjeta t ON c.customer_id = t.customer_id
+INNER JOIN sucursal s ON c.branch_id = s.branch_id
+INNER JOIN marca_tarjeta m ON t.card_brand_id = m.card_brand_id
 WHERE t.card_type = 'credito'
-GROUP BY  t.brand_card_id, s.branch_name
+GROUP BY  t.card_brand_id, s.branch_name
 ORDER BY s.branch_name;
 
 -------------------------------------------------
