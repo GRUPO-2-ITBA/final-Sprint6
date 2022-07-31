@@ -86,8 +86,15 @@ INSERT INTO prestamo SELECT * FROM prestamo_old;
 DROP TABLE prestamo_old;
 COMMIT;
 
-
 BEGIN TRANSACTION;
+CREATE TABLE marca_tarjeta (
+  card_brand_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  card_brand_description TEXT NOT NULL
+);
+
+INSERT INTO marca_tarjeta(card_brand_description)
+VALUES ("Mastercard"), ("Visa"),("American Express");
+
 CREATE TABLE tarjeta (
   card_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   card_number VARCHAR(20) UNIQUE NOT NULL,
@@ -97,21 +104,12 @@ CREATE TABLE tarjeta (
   card_type TEXT NOT NULL,
   customer_id INTEGER NOT NULL,
   brand_card_id INTEGER NOT NULL,
-  FOREIGN KEY (customer_id) REFERENCES cliente(customer_id)
+  FOREIGN KEY (customer_id) REFERENCES cliente(customer_id),
+  FOREIGN KEY (brand_card_id) REFERENCES marca_tarjeta(card_brand_id)
 );
 
-INSERT INTO tarjeta (card_number, card_cvv,creditcard_issue_date,card_expiration_date,card_type,brand_card_id,customer_id)
-VALUES ("343549897659889","921","0122","0923","Debito","2",404)
-
-CREATE TABLE marca_tarjeta (
-  card_brand_id INTEGER NOT NULL PRIMARY KEY,
-  card_brand_description TEXT NOT NULL
-  card_id INTEGER NOT NULL,
-  FOREIGN KEY (card_id) REFERENCES tarjeta(card_id)
-);
-
-INSERT INTO marca_tarjetas (creditcardbrand_name)
-VALUES ("Mastercard"), ("Visa"),  ("American Express");
+INSERT INTO tarjeta (card_number, card_cvv,card_issue_date,card_expiration_date,card_type,brand_card_id,customer_id)
+VALUES ("343549897659889","921","0122","0923","Debito","2",404);
 COMMIT;
 
 

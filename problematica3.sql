@@ -9,4 +9,13 @@ SELECT * FROM prestamo where loan_type == "PRENDARIO"
 INTERSECT
 SELECT * FROM prestamo where loan_total > 8000000
 
-SELECT avg(loan_total) AS PROMEDIO FROM prestamo where loan_total > PROMEDIO;
+SELECT * FROM prestamo WHERE loan_total > (SELECT AVG(loan_total) FROM prestamo);
+
+SELECT count(*) AS clientesMenores50 FROM clientes_view WHERE edad < 50;
+
+SELECT * FROM cuenta WHERE balance > 800000 LIMIT 5;
+
+SELECT * FROM prestamo WHERE strftime('%m', loan_date) == '04' OR strftime('%m', loan_date) == '05' OR strftime('%m', loan_date) == '06' ORDER BY loan_total;
+
+SELECT loan_type, SUM(loan_total) AS loan_total_accu FROM prestamo GROUP BY loan_type;
+
