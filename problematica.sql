@@ -113,6 +113,9 @@ VALUES ("343549897659889","921","0122","0923","Debito","2",404);
 COMMIT;
 
 
+INSERT INTO tarjeta (card_number, card_cvv,card_issue_date,card_expiration_date,card_type,brand_card_id,customer_id)
+VALUES ("343549897659887","921","0122","0923","credito","2",200);
+
 BEGIN TRANSACTION;
 CREATE TABLE direcciones (
   address_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
