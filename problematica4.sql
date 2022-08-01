@@ -102,6 +102,8 @@ CREATE TABLE movimientos (
     create_at TIMESTAMP
 );
 
+----------------------------------------------
+
 BEGIN TRANSACTION;
     INSERT INTO movimientos (account_id, amount, type, create_at) VALUES (200, 1000, 'deposito', DATETIME('NOW'));
     UPDATE cuenta SET balance = balance + 1000 WHERE account_id = 200;
